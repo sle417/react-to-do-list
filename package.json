@@ -1,12 +1,16 @@
 {
   "homepage": "https://sle417.github.io/react-to-do-list",
+  "src": "dist",
   "name": "react-to-do-list",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
