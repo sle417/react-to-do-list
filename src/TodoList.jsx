@@ -1,4 +1,6 @@
-export function Todolist({ todos, toggleTodo, deleteTodo }) {
+import { TodoItem } from "./TodoItem"
+
+export function TodoList({ todos, toggleTodo, deleteTodo }) {
     return (
         <ul className="list">
 

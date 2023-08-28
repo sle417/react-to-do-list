@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
+import { NewTodoForm } from "./NewTodoForm"
 import "./styles.css"
+import { TodoList } from "./TodoList"
 
 export default function App() {
 
@@ -17,12 +19,11 @@ export default function App() {
   //HOOKS CAN NOT BE RENDERED CONDITIONALLY (LOOPS) HAVE TO BE ON TOP OF FILE
   useEffect(() => {
     // run this function everytime object inside the array of second property changes, which we set to be the todos array
-    localStorage.setItem("ITEM", JSON.stringify(todos))
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
   }, [todos])
 
   function addTodo(title) {
     // crypto.randomUUID() is a build in method for the crypto module that generates a random ID in the format of: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-
     // currentTodos represents the current value for whatever the state is
     setTodos((currentTodos) => {
       return [
@@ -54,7 +55,6 @@ export default function App() {
     })
   }
 
-
   function deleteTodo(id) {
     setTodos(currentTodos => {
       // for each item in todo array, leave out todos, in which id matches the one passed.
@@ -65,8 +65,6 @@ export default function App() {
   //setting states in react: todos is always equal to whatever value we rendered on the last render which is an empty array
   // when you call setTodos twice, todos is still an empty array so it takes an empty array and adds a new value to it
   // the second call to setTodos will overwrite all the ones before it. Solution: Pass a function to setTodos
-  console.log(todos);
-
   return (
     <>
       <NewTodoForm onSubmit={addTodo} />
